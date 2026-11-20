@@ -3,6 +3,8 @@ title: Using the app
 weight: 2
 ---
 
+# Using the app
+
 ## Check activation
 
 Choose **Check status**. The app runs the Windows Software Licensing Management Tool and displays its response.

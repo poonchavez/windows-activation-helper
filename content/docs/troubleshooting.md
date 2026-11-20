@@ -3,6 +3,8 @@ title: Troubleshooting
 weight: 4
 ---
 
+# Troubleshooting
+
 - Confirm that the installed Windows edition matches the license.
 - Open **Settings → System → Activation** and run the Activation troubleshooter when available.
 - Check that the PC is connected to the internet for online activation.
