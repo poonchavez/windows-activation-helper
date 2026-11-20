@@ -9,3 +9,7 @@ Welcome to the documentation for the Windows Activation Helper, a Visual Basic .
 See the [installation and usage instructions](/docs/getting-started/).
 
 This project does not provide product keys or bypass Windows licensing. Use a genuine product key or digital license assigned to you.
+
+## About the Developer
+
+Windows Activation Helper is developed by {{< github-profile >}}.
