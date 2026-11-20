@@ -14,9 +14,9 @@ weight: 1
 
 ## Download the app
 
-Download [WindowsActivationHelper.exe](/downloads/WindowsActivationHelper.exe) for 64-bit Windows. It is published as a self-contained app, so installing the .NET runtime is not required. The executable is currently unsigned, so Windows may show a SmartScreen warning. Only run it if you trust the source and have verified the release; do not bypass a warning for an unfamiliar or unverified download.
+Choose the self-contained app for your Windows architecture: [64-bit (x64)]({{< site-url "downloads/WindowsActivationHelper.exe" >}}) or [32-bit (x86)]({{< site-url "downloads/WindowsActivationHelper-x86.exe" >}}). Installing the .NET runtime is not required. The executables are currently unsigned, so Windows may show a SmartScreen warning. Only run them if you trust the source and have verified the release; do not bypass a warning for an unfamiliar or unverified download.
 
-The downloadable executable is not included in source checkouts until a Windows release is published. To create it, use the publish command below.
+The downloadable executables are included in `static/downloads/`. To rebuild them, use the publish commands below.
 
 ## Build the Windows app
 
@@ -27,10 +27,11 @@ dotnet build .\WindowsActivationHelper\WindowsActivationHelper.vbproj -c Release
 dotnet run --project .\WindowsActivationHelper\WindowsActivationHelper.vbproj
 ```
 
-To create the downloadable, self-contained Windows x64 executable from the repository root:
+To create the downloadable, self-contained Windows executables from the repository root:
 
 ```powershell
 dotnet publish .\WindowsActivationHelper\WindowsActivationHelper.vbproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:DebugType=None -p:DebugSymbols=false -o .\static\downloads
+dotnet publish .\WindowsActivationHelper\WindowsActivationHelper.vbproj -c Release -r win-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:DebugType=None -p:DebugSymbols=false -p:AssemblyName=WindowsActivationHelper-x86 -o .\static\downloads
 ```
 
 Checking activation status and opening Windows settings do not need elevation. Installing a product key requires launching the app with **Run as administrator**.

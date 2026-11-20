@@ -15,13 +15,14 @@ dotnet run --project .\WindowsActivationHelper\WindowsActivationHelper.vbproj
 
 The app checks activation status, opens Windows Activation settings, and can install a product key supplied by the user. Installing a key requires running as administrator and confirming the operation.
 
-To publish a self-contained Windows x64 executable for the website download:
+To publish self-contained Windows x64 and x86 executables for the website downloads:
 
 ```powershell
 dotnet publish .\WindowsActivationHelper\WindowsActivationHelper.vbproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:DebugType=None -p:DebugSymbols=false -o .\static\downloads
+dotnet publish .\WindowsActivationHelper\WindowsActivationHelper.vbproj -c Release -r win-x86 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:EnableCompressionInSingleFile=true -p:DebugType=None -p:DebugSymbols=false -p:AssemblyName=WindowsActivationHelper-x86 -o .\static\downloads
 ```
 
-This creates `static/downloads/WindowsActivationHelper.exe`, which Hugo serves at `/downloads/WindowsActivationHelper.exe`. Publish the site after generating the executable.
+This creates `static/downloads/WindowsActivationHelper.exe` and `static/downloads/WindowsActivationHelper-x86.exe`. Hugo serves both files from `/downloads/`. Publish the site after generating the executables.
 
 ## Hugo documentation website
 
